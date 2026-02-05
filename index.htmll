@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Achuu 💗</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fff0f3 0%, #ffccd5 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.3);
+            max-width: 550px;
+            width: 95%;
+            border: 2px solid white;
+            margin-bottom: 20px;
+        }
+
+        /* Animation for the "Mini Videos" */
+        .video-box {
+            width: 100%;
+            height: 150px;
+            background: #ffe5ec;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            border: 3px dashed #ff4d6d;
+        }
+
+        .video-emoji { animation: bounce 2s infinite; }
+        @keyframes bounce { 
+            0%, 100% { transform: translateY(0) scale(1); } 
+            50% { transform: translateY(-20px) scale(1.2); } 
+        }
+
+        /* Valentine Week List */
+        .week-list {
+            text-align: left;
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            border-left: 5px solid #ff4d6d;
+        }
+
+        .week-day { margin-bottom: 8px; display: flex; justify-content: space-between; }
+        .week-day strong { color: #ff4d6d; }
+
+        h1 { color: #ff4d6d; font-size: 1.6rem; margin-bottom: 10px; }
+        
+        .message-text {
+            color: #4a4a4a;
+            line-height: 1.6;
+            font-size: 1rem;
+            text-align: left;
+            white-space: pre-line;
+            margin-top: 15px;
+        }
+
+        .buttons { margin-top: 20px; position: relative; min-height: 100px; }
+
+        button {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        #yesBtn { background-color: #ff4d6d; color: white; box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4); }
+        #noBtn { background-color: #adb5bd; color: white; position: absolute; }
+
+        .hidden { display: none; }
+
+        .floating {
+            position: absolute;
+            font-size: 30px;
+            animation: floatUp 4s ease-out forwards;
+            bottom: -50px;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0); opacity: 1; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+        }
+
+        #music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            font-size: 20px;
+            border: 2px solid #ff4d6d;
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+    <div id="music-control" onclick="toggleMusic()">🎵</div>
+
+    <div id="question-container" class="container">
+        <div class="video-box">
+            <span class="video-emoji">🌹✨</span>
+        </div>
+        <h1>Will you be my Valentine, <br> Achuu? 💗</h1>
+        <p style="color: #ff4d6d; font-size: 0.8rem;">(Turn up volume & tap 🎵)</p>
+        
+        <div class="week-list">
+            <div class="week-day"><span>🌹 Rose Day</span> <strong>For My Rose</strong></div>
+            <div class="week-day"><span>💍 Propose Day</span> <strong>I'm Yours</strong></div>
+            <div class="week-day"><span>🍫 Chocolate Day</span> <strong>Sweet Like U</strong></div>
+            <div class="week-day"><span>🧸 Teddy Day</span> <strong>Hugs Only</strong></div>
+            <div class="week-day"><span>🤝 Promise Day</span> <strong>Always Here</strong></div>
+            <div class="week-day"><span>🫂 Hug Day</span> <strong>Tightest Squeeze</strong></div>
+            <div class="week-day"><span>💋 Kiss Day</span> <strong>Muah!</strong></div>
+        </div>
+
+        <div class="buttons">
+            <button id="yesBtn">Yes! 🥰</button>
+            <button id="noBtn">No 😢</button>
+        </div>
+    </div>
+
+    <div id="celebration" class="hidden container">
+        <div class="video-box" style="background: #ffccd5;">
+            <span class="video-emoji">😘🧸💖</span>
+        </div>
+        <h1>Our First Valentine Week! ✨</h1>
+        <div class="message-text">
+Happy Valentine's day achuuu 🥹😘, so enich ente first valentine's day ahh enich entha parayandey ennu onnum arinjuda eppo manasli varunney ellam athupoley parayam 😌💗. 
+
+As I have mentioned a hundred times before, nee enik sherikkum oru blessing ahh 🥹. My only dream and wish was you, and now I have that with me. Life long motham koode vennonum ind, and koode kannum ariyam just otta kariyam, when you're with me, I am always happy. Ethin munne orikkallum ellathe oru happiness enik eppo ind. 
+
+From the moment I wake up until I go to sleep, I can feel your presence with me 🫠. Eppo exam time ahnallo achuun enik nallonam miss adikkuind 🫠🫠. Nee ellathe oru secondum pattunillan realize cheythu. Hours varathe erikkum, I am losing my strength 🫠🫠. Miss adichattu vayyathe avum but achuu varupoo ok avutto ☺️😚. 
+
+Enich veluthayi onnum arinjuda but the person I admired for two years was the best choice of my life 😩. I am being treated the way I always wanted 🥺. Pinne 2 years admire cheythekkallum a thousand times more, admire cheyan eppo pattuind 🫠. 
+
+And 😭 you're more beautiful every day; I am falling for you again and again, even harder 😭😭💗. I love you more than my life 🥺💗 and I only want a life with you 🫠🫠.
+        </div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const bgMusic = document.getElementById('bgMusic');
+        const questionContainer = document.getElementById('question-container');
+        const celebration = document.getElementById('celebration');
+
+        function toggleMusic() {
+            bgMusic.paused ? bgMusic.play() : bgMusic.pause();
+        }
+
+        document.body.addEventListener('click', () => {
+            bgMusic.play().catch(e => console.log("Blocked"));
+        }, { once: true });
+
+        let yesScale = 1;
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+            yesScale += 0.2;
+            yesBtn.style.transform = `scale(${yesScale})`;
+        });
+
+        yesBtn.addEventListener('click', () => {
+            questionContainer.classList.add('hidden');
+            celebration.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Celebration "Video" Effects
+            setInterval(() => createEmoji('💋'), 100);
+            setInterval(() => createEmoji('😘'), 200);
+            setInterval(() => createEmoji('🌹'), 300);
+            setInterval(() => createEmoji('🍫'), 500);
+        });
+
+        function createEmoji(symbol) {
+            const emoji = document.createElement('div');
+            emoji.classList.add('floating');
+            emoji.innerHTML = symbol;
+            emoji.style.left = Math.random() * 100 + 'vw';
+            emoji.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            document.body.appendChild(emoji);
+            setTimeout(() => emoji.remove(), 4000);
+        }
+
+        setInterval(() => createEmoji('🌸'), 1000);
+    </script>
+</body>
+</html>
